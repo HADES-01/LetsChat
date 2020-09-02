@@ -4,7 +4,7 @@
   "description": "Simple Chatting App that connects users  having unique username together in a single chatting enviornment.",
   "main": "app.js",
   "scripts": {
-	"start" : "node app.js";
+	"start" : "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
