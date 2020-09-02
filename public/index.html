@@ -27,9 +27,9 @@
             <p class="home-par mt-5">Let's Chat is Simple Chatting app that let's users connect and chat <strong>Together</strong></p>
             <label for="nickname">
                 <input id="nickname" type="text" class="nickname" maxlength="15" placeholder="What's Your Nickname?" required>
-                <!-- <input type="submit" onclick="joinChat()"> -->
+                <input type="submit" class="button" onclick="joinChat()">
             </label>
-            <p class="lead list-group-item nickname-taken">Nickname is Taken, choose Another One.</p>
+            <p class="lead list-group-item " id="nickname-taken">Nickname is Taken, choose Another One.</p>
         </div>
     </div>
     <div class="message-board" id="message-board">
@@ -47,13 +47,12 @@
                     <div class="card-header bg-danger" style="color: aliceblue">
                         <h1>Messages</h1>
                     </div>
-                    <div class="messages card-body p-0">
-                        <ul class="list-group list-group-flush message-list" id="message-list">
-                        </ul>
+                    <div class="card-body p-0 messages">
+                        <ul class="list-group list-group-flush message-list" id="message-list"></ul>
                         <p id="isTyping"></p>
-                        <textarea id="message" class="message" placeholder="What' on Your Mind ?" rows="1"></textarea>
-                        <input type="submit" class="btn btn-success btn-lg submitBtn" onclick="sendMsg()" placeholder="send">
                     </div>
+                    <textarea id="message" class="message" placeholder="What' on Your Mind ?" rows="1"></textarea>
+                    <input type="submit" class="btn btn-success btn-lg submitBtn" onclick="sendMsg()" placeholder="send">
                 </div>
             </div>
         </div>

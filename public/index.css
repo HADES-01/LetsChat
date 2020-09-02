@@ -47,7 +47,7 @@ body {
     text-align: center;
 }
 
-button {
+.button {
     line-height: 2.0;
     border: none;
     border:3px solid white;
@@ -85,12 +85,12 @@ button:hover{
     background-color: rgb(119,121,159);
     background-image: url('https://web.whatsapp.com/img/bg-chat-tile-dark_9f39e76b5a0e039e53afc5d9d4bdd780.png');
     overflow-y: scroll;
+    margin-bottom: 50px;
 }
 
 #message-list {
     align-items: center;
     list-style-type: none;
-    margin-bottom: 50px;
 }
 .user-wall {
     height: 500px;
@@ -160,7 +160,7 @@ button:hover{
     }
 }
 
-.nickname-taken {
+#nickname-taken {
     background-color: rgba(230, 0, 0, 0.4);
     width: 700px;
     color: white;
