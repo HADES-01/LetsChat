@@ -418,12 +418,23 @@ textarea:focus {
         border: 1px solid #06CD99;
     }
 
-    .message {
-        width: auto;
-    }
-
     .form {
         justify-content: flex-start;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    nav {
+        display: none;
+    }
+
+    .message {
+        font-size: small;
+        padding: 5px 20px;
+    }
+
+    .message-board {
+        height: 100%;
     }
 }
 
