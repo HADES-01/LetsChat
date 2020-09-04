@@ -22,11 +22,10 @@ const newMessage = (data) => {
                 + data.user.color 
                 + "\'>" 
                 + data.user.username 
-                + "</strong> <br>" 
+                + "</strong> <br> <br>" 
                 + data.message;
     message.style.borderLeft = `5px solid ${data.user.color}`;
-    message.style.margin = 'auto';
-    message.classList.add("list-group-item", "w-50", "mb-2", "ml-2", "px-2", "py-0");
+    message.classList.add("incoming");
     return message;
 }
 
@@ -38,11 +37,10 @@ const sendMessage = (user, message_text) => {
                 + user.color 
                 + "\'>" 
                 + user.username 
-                + "</strong> <br>" 
+                + "</strong> <br> <br>" 
                 + message_text;
     message.style.borderRight = `5px solid ${user.color}`;
-    message.style.marginRight = "-45%";
-    message.classList.add("list-group-item", "w-50", "mb-2", "ml-2", "px-2", "py-0");
+    message.classList.add("outgoing");
     return message;
 }
 
@@ -50,10 +48,8 @@ const sendMessage = (user, message_text) => {
 // new user that just joined  
 const newUserItem = (data) => {
     const user = document.createElement('li');
-    user.classList.add("list-group-item");
     user.id = data.username;
-    user.innerHTML = data.username;
-    user.style.color = data.color;
+    user.innerHTML = "<img src=" + "assets/img_avatar.png" + "> <span>" + data.username + "</span>";
     return user;
 };
 
@@ -66,28 +62,20 @@ const messagePopup = (data, type) => {
                         + "\'>"
                         + data.username +
                         "</strong>  " + type;
-    message.classList.add("msg", "w-25", "mb-2", "ml-2", "p-2", "shadow-lg", "bg-white", "rounded","py-0");
-    message.style.background = 'rgb(247,243,218)';
+    message.classList.add("popup");
     return message;
 }
 
 // isTypingMsg() function makes p#isTyping vivsible with the information
 // about the respective user typing a message 
 const isTypingMsg = (user) => {
-    const message = document.getElementById('isTyping');
-    message.style.display = 'block';
-    message.innerHTML = "<strong class='user-name' style=\'color:" 
-                        + user.color 
-                        + "\'>" 
-                        + user.username 
-                        + "</strong> <br>" 
-                        + " <span id='dot'><i class=\'fas fa-circle\'></i> </span>" 
-                        + "<span id='dot'><i class=\'fas fa-circle\'> </i></span> " 
-                        + "<span id='dot'><i class=\'fas fa-circle\'> </i></span>";
-    message.style.borderLeft = `5px solid ${user.color}`;
-    message.classList.add("msg", "list-group-item", "w-25", "mb-2", "ml-2", "p-2", "py-0", "shadow-lg", "rounded");
-    message.style.background = 'rgb(247,243,218)';
-    return message;
+    const p = document.getElementById("isTyping");
+    const s = document.getElementById("user-typing");
+    p.style.visibility = 'visible';
+    s.innerHTML = user.username;
+    s.style.color = user.color;
+    p.style.borderLeft = `5px solid ${user.color}`;
+    p.classList.add("incoming");
 }
 
 
@@ -95,7 +83,7 @@ const isTypingMsg = (user) => {
 // about the respective user typing a message
 const isNotTypingMsg = (user) => {
     const p = document.getElementById('isTyping');
-    p.style.display = 'none';
+    p.style.visibility = 'hidden';
 }
 
 
@@ -106,8 +94,8 @@ function joinChat() {
     if(username.length > 0) {
         let taken = false;
         socket.emit('hey', username);
-        document.getElementById("login-form").style.display = "none";
-        document.getElementById("message-board").style.display = "block";
+        document.getElementById("main").style.display = "none";
+        document.getElementById("message-board").style.display = "flex";
         isLoggedIn = true;
     }
 }
@@ -132,7 +120,7 @@ function sendMsg() {
             { 
                 behavior: 'smooth', 
                 block: 'end', 
-                inline: 'end' 
+                inline: 'start' 
             }
         );
     }
@@ -141,7 +129,7 @@ function sendMsg() {
 nickname.onkeydown = nickname_input; //records everytime when a key is pressed on the input and takes reasonable measures
 
 // sends the 'typing' info on the server when a user starts typing on the message input 
-message_input.onkeydown = (e) => {
+message_input.onfocus = () => {
     socket.emit('typing', newUser);
     document.getElementById('message-list').scrollIntoView(
         { 
@@ -151,6 +139,13 @@ message_input.onkeydown = (e) => {
         }
     );
 };
+
+// sends amsg when 'Enter' key is pressesd
+message_input.onkeydown = (e) => {
+    if(e.code === 'Enter'){
+        sendMsg();
+    }
+}; 
 
 // sends the 'notTyping' info on the server when a user stops typing on the message input
 message_input.onblur = (e) => {
@@ -162,9 +157,9 @@ message_input.onblur = (e) => {
 
 // tells to stop executing when the server detects a duplicate 'nickname'
 socket.on('nickname_error', () => {
-    document.getElementById("login-form").style.display = "block";
+    document.getElementById("main").style.display = "flex";
     document.getElementById("message-board").style.display = "none";
-    document.getElementById('nickname-taken').style.display = 'block';
+    document.getElementById('nickname-taken').style.display = 'flex';
     taken = true;
     isLoggedIn = false;
 });
