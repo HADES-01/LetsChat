@@ -73,7 +73,6 @@ nav {
 }
 
 .nav-link {
-    border: 1px solid #06CD99;
     padding: 10px;
     transition: background 0.5s;
 }
@@ -127,6 +126,8 @@ h1,p {
     color: rgb(66,69,86);
     padding: 10px;
     transition: 0.5s;
+    justify-self: center;
+    width: 100%;
     background: transparent;
 }
 
@@ -139,6 +140,11 @@ h1,p {
     border-radius: 10px;
     transition: 0.5s;
     background: transparent;
+}
+
+.main .button {
+    width: 100%;
+    margin-top: 5%;
 }
 
 .fas-chevron-right {
@@ -203,14 +209,14 @@ h1,p {
 .header {
     text-align: end;
     height: 15%;
-    display:flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background-color: #5E5C8E;
 }
 
 .message-wall {
-    height: 73%;
+    height: 90%;
     display: flex;
     flex-direction: column;
 }
@@ -395,6 +401,16 @@ textarea:focus {
 
     .messages {
         width: 75%;
+    }
+    .header {
+        display: flex;
+    }
+    .message-wall {
+        height: 73%;
+    }
+
+    .nav-link {
+        border: 1px solid #06CD99;
     }
 }
 
