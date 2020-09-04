@@ -118,6 +118,12 @@ h1,p {
     font-size: 20px;
 }
 
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
 .nickname {
     border: none;
@@ -126,8 +132,7 @@ h1,p {
     color: rgb(66,69,86);
     padding: 10px;
     transition: 0.5s;
-    justify-self: center;
-    width: 100%;
+    width: 80%;
     background: transparent;
 }
 
@@ -143,7 +148,7 @@ h1,p {
 }
 
 .main .button {
-    width: 100%;
+    width: 80%;
     margin-top: 5%;
 }
 
@@ -411,6 +416,14 @@ textarea:focus {
 
     .nav-link {
         border: 1px solid #06CD99;
+    }
+
+    .message {
+        width: auto;
+    }
+
+    .form {
+        justify-content: flex-start;
     }
 }
 
