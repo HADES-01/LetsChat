@@ -1,0 +1,26 @@
+<%- include('./partials/header') %>
+<div class="create">
+  <h1>Create Your Room</h1>
+  <div class="form">
+    <p class="create-par">
+      Create A Personalized Room and Invite Your Freinds there for every
+      <strong>HangOut Session</strong> and <strong>Late Night Chats</strong>.
+    </p>
+    <form action="/chat" method="POST">
+      <input
+        type="text"
+        name="room_name"
+        maxlength="15"
+        class="room-name"
+        autocomplete="off"
+        placeholder="Room Name Goes Here ..."
+      />
+      <br />
+      <input type="submit" value="Create" class="button" />
+    </form>
+  </div>
+  <div class="art">
+    <img src="/images/roomChat.svg" alt="" width="100%" />
+  </div>
+</div>
+<%- include('./partials/footer') %>

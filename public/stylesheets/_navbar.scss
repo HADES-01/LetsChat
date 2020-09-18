@@ -1,0 +1,86 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  //   background-color: #f5ae5280;
+  position: fixed;
+  z-index: 2;
+  justify-content: center;
+  min-height: 15vh;
+}
+nav {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  .brand-logo {
+    flex-grow: 2;
+    color: red;
+    font-family: "Pacifico";
+    font-size: 45px;
+  }
+  .nav-links {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    .nav-link {
+      color: $secondary_color;
+      border: 2px solid $primary_color;
+      padding: 15px;
+      border-radius: 5px;
+      font-weight: 700;
+      color: $primary_color;
+    }
+    .nav-link:hover {
+      background-color: $primary_color;
+      color: white;
+      transition: all 0.3s ease-out;
+    }
+  }
+  .drop {
+    display: none;
+    button {
+      padding: 15px;
+      background: transparent;
+      border: 3px solid $primary_color;
+      color: $primary_color;
+      border-radius: 10px;
+      font-size: 20px;
+      .fa-times {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav .nav-links {
+    position: absolute;
+    top: 18vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff0ce;
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateX(100%);
+    min-height: 82vh;
+    width: 50%;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  nav .nav-links .nav-link {
+    border: none;
+    font-size: 24px;
+  }
+
+  nav .nav-links .nav-link:hover {
+    background: transparent;
+    color: $primary_color;
+  }
+
+  nav .drop {
+    display: block;
+  }
+}

@@ -1,0 +1,25 @@
+<script>
+    var coll = document.getElementsByClassName("dropbtn");
+    var i;
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            let icon = document.getElementsByClassName("fa-chevron-down");
+            let nav = document.querySelector("nav");
+            if (content.style.visibility === "visible") {
+                icon[0].style.transform = "rotate(0deg)";
+                content.style.visibility = "hidden";
+                content.style.opacity = 0;
+                nav.style.height = "10%";
+            } else {
+                icon[0].style.transform = "rotate(180deg)";
+                content.style.visibility = "visible";
+                content.style.opacity = 1;
+                nav.style.height = "25%";
+            }
+        });
+    }
+</script>
+</body>
+</html>

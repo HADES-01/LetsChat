@@ -1,0 +1,44 @@
+$primary_color: #ff4f28f3;
+$secondary_color: grey;
+$bg_gradient: radial-gradient(
+  77.22% 152.71% at 77.22% 50%,
+  #fcfffc 0%,
+  rgba(255, 239, 202, 0.92) 100%
+);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+a,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: grabbing;
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+
+@import "navbar";
+@import "index";
+@import "create";
+@import "waiting";
+@import "chat";
+
+body {
+  background: $bg_gradient;
+  font-family: "Raleway";
+  height: 100%;
+  width: 100%;
+  color: $secondary_color;
+}

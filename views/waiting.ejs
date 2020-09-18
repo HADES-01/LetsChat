@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+<div class="waiting">
+  <h1><strong><%= room_name.toUpperCase() %></strong> Room</h1>
+  <div class="cards">
+    <div class="card" id="card1">
+      <form action="/chat/<%= room_name %>" method="POST">
+        <input
+          type="text"
+          name="nickname"
+          placeholder="Your Name Goes Here ....."
+        />
+        <input
+          type="text"
+          name="user_profile"
+          placeholder="Your Image URL Goes Here ...."
+        />
+        <input type="submit" value="Enter" class="button" />
+        <img src="/images/chatArt.svg" width="100%" />
+      </form>
+      <% if(taken) { %>
+      <p
+        class="lead list-group-item"
+        style="display: block"
+        id="nickname-taken"
+      >
+        Nickname is Taken, Choose Another One.
+      </p>
+      <% } %>
+    </div>
+    <div class="card" id="card2">
+      <p id="url">
+        <button id="clickToCopy" onclick="copyToClipboard()">
+          <i class="fas fa-pen"></i>
+        </button>
+      </p>
+      <div class="wait-area">
+        <h3>Your Freinds Are Waiting :</h3>
+        <ul class="user-area" id="user-area"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/scripts/waiting.js"></script>
+<%- include('./partials/footer') %>

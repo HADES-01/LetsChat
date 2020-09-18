@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <nav>
+        <div class="brand-logo">
+          <a href="/"> Let's Chat</a>
+        </div>
+        <div class="nav-links">
+          <a href="/chat" class="nav-link"> Make a Room</a>
+          <a href="/contact" class="nav-link"> Contact Us</a>
+          <a href="/about" class="nav-link"> About Us</a>
+        </div>
+        <div class="drop">
+          <button class="dropbtn" id="btn">
+            <i class="fas fa-bars" id="bars"></i>
+            <i class="fas fa-times" id="cross"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <script>
+      let nav = document.getElementsByClassName("nav-links")[0];
+      let btn = document.getElementById("btn");
+      let bars = document.getElementById("bars"),
+        cross = document.getElementById("cross");
+      btn.addEventListener("click", () => {
+        if (nav.style.transform === "translateX(100%)") {
+          nav.style.transform = "translateX(0)";
+          nav.style.opacity = 1;
+          bars.style.display = "none";
+          cross.style.display = "block";
+        } else {
+          nav.style.transform = "translateX(100%)";
+          nav.style.opacity = 0;
+          bars.style.display = "block";
+          cross.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
