@@ -1,6 +1,6 @@
 const namespace = window.location.pathname;
 console.log(namespace);
-const socket = io.connect(`http://localhost:3000${namespace}`, {
+const socket = io.connect(`${namespace}`, {
   query: `ns=${namespace}`,
   resource: "socket.io",
 });
