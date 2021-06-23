@@ -158,27 +158,31 @@
   font-size: 20px;
 }
 
+.isTyping > span {
+  display: inline-block;
+}
+
 .dot1 {
-  animation: jump 1.5s linear infinite;
+  animation: 1.5s linear infinite jump;
 }
 
 .dot2 {
-  animation: jump 1.5s linear 0.5s infinite;
+  animation: 1.5s linear 0.25s infinite jump;
 }
 
 .dot3 {
-  animation: jump 1.5s linear 1s infinite;
+  animation: 1.5s linear 0.5s infinite jump;
 }
 
 @keyframes jump {
   0% {
-    transform: translate(0, 0);
+    transform: translateY(0);
   }
-  16% {
-    transform: translate(0, -10px);
+  17% {
+    transform: translateY(-15px);
   }
-  33% {
-    transform: translate(0, 0);
+  33.33% {
+    transform: translateY(0);
   }
 }
 

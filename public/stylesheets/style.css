@@ -818,48 +818,52 @@ nav .drop button .fa-times {
   font-size: 20px;
 }
 
+.isTyping > span {
+  display: inline-block;
+}
+
 .dot1 {
-  -webkit-animation: jump 1.5s linear infinite;
-          animation: jump 1.5s linear infinite;
+  -webkit-animation: 1.5s linear infinite jump;
+          animation: 1.5s linear infinite jump;
 }
 
 .dot2 {
-  -webkit-animation: jump 1.5s linear 0.5s infinite;
-          animation: jump 1.5s linear 0.5s infinite;
+  -webkit-animation: 1.5s linear 0.25s infinite jump;
+          animation: 1.5s linear 0.25s infinite jump;
 }
 
 .dot3 {
-  -webkit-animation: jump 1.5s linear 1s infinite;
-          animation: jump 1.5s linear 1s infinite;
+  -webkit-animation: 1.5s linear 0.5s infinite jump;
+          animation: 1.5s linear 0.5s infinite jump;
 }
 
 @-webkit-keyframes jump {
   0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
-  16% {
-    -webkit-transform: translate(0, -10px);
-            transform: translate(0, -10px);
+  17% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
-  33% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+  33.33% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
 @keyframes jump {
   0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
-  16% {
-    -webkit-transform: translate(0, -10px);
-            transform: translate(0, -10px);
+  17% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
-  33% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+  33.33% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
