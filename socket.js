@@ -12,6 +12,7 @@ const colors = require("./colors"); // To Assign a new Color to each new User
 const namespace = {}; // will store the existing namespaces
 namespace["/"] = true; // make sure no room exist on root path
 namespace["/chat/"] = true; // make sure no room exist on chat path
+namespace["/chat"] = true; // make sure no room exist on chat path
 
 module.exports = (io) => {
   io.on("connection", (user) => {
@@ -24,6 +25,7 @@ module.exports = (io) => {
       namespace[ns] = true;
       console.log(ns);
       io.of(ns).on("connection", (socket) => {
+        console.log(ns);
         let room = ns.split("/")[2].toUpperCase();
         ee.emit("chat", socket, room);
       });

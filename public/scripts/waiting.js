@@ -11,10 +11,12 @@ function copyToClipboard() {
 }
 
 const namespace = window.location.pathname;
-const socket = io.connect(`http://localhost:3000${namespace}`, {
+console.log(window.location.href);
+const socket = io.connect(window.location.href, {
   query: `ns=${namespace}`,
   resource: "socket.io",
 });
+
 socket.emit("getUsers");
 socket.on("allUsers", (data) => {
   data.forEach((element) => {
